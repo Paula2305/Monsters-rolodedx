@@ -42,8 +42,8 @@ class App extends Component {
   // - cuando se llama al setState
   // - cuando se actualizan los props
   render() {
-    const {monsters, searchField} = this.state;
-    const {onSearchChange} = this;
+    const { monsters, searchField } = this.state;
+    const { onSearchChange } = this;
 
     const filteredMonsters = monsters.filter((monster) => { // Se crea un array nuevo "filteredMonsters" que contiene los monstruos filtrados sin modificar el array original 
       return monster.name.toLocaleLowerCase().includes(searchField);
@@ -51,10 +51,13 @@ class App extends Component {
 
     return (
       <div className="App">
-        <SearchBox onChangeHandler = {onSearchChange} placeholder = 'search monsters' className = 'search-box' />
+        <SearchBox
+          className='monsters-search-box'
+          onChangeHandler={onSearchChange} 
+          placeholder='search monsters'  />
 
-        {/* Los componentes creados se deben escribir con Capitalize */ }
-        <CardList monsters = {filteredMonsters} />
+        {/* Los componentes creados se deben escribir con Capitalize */}
+        <CardList monsters={filteredMonsters} />
       </div>
     );
   }
